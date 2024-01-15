@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_article_components_items",
+  "info": {
+    "displayName": "item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image_url": {
+      "type": "string"
+    },
+    "caption_url": {
+      "type": "string"
+    },
+    "caption_description": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "post_image_text": {
+      "type": "text"
+    },
+    "pre_image_text": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "INTRO",
+        "BASIC"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

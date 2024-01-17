@@ -18,10 +18,36 @@ export interface ArticleComponentsItem extends Schema.Component {
   };
 }
 
+export interface StaticPagesPrivacyPolicy extends Schema.Component {
+  collectionName: 'components_static_pages_privacy_policies';
+  info: {
+    displayName: 'privacyPolicy';
+    description: '';
+  };
+  attributes: {
+    privacyNoticeName: Attribute.String;
+    privacyNoticeUrl: Attribute.String;
+  };
+}
+
+export interface StaticPagesTermsOfService extends Schema.Component {
+  collectionName: 'components_static_pages_terms_of_services';
+  info: {
+    displayName: 'Terms Of Service';
+  };
+  attributes: {
+    website: Attribute.String;
+    privacy_policy_url: Attribute.String;
+    info_mail: Attribute.Email;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'article-components.item': ArticleComponentsItem;
+      'static-pages.privacy-policy': StaticPagesPrivacyPolicy;
+      'static-pages.terms-of-service': StaticPagesTermsOfService;
     }
   }
 }

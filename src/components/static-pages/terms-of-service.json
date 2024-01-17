@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_static_pages_terms_of_services",
+  "info": {
+    "displayName": "Terms Of Service"
+  },
+  "options": {},
+  "attributes": {
+    "website": {
+      "type": "string"
+    },
+    "privacy_policy_url": {
+      "type": "string"
+    },
+    "info_mail": {
+      "type": "email"
+    }
+  }
+}

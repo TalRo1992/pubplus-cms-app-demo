@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_static_pages_privacy_policies",
+  "info": {
+    "displayName": "privacyPolicy",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "privacyNoticeName": {
+      "type": "string"
+    },
+    "privacyNoticeUrl": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "dmca_policies",
+  "info": {
+    "singularName": "dmca-policy",
+    "pluralName": "dmca-policies",
+    "displayName": "DMCA policy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dmcaPolicy": {
+      "type": "richtext"
+    }
+  }
+}

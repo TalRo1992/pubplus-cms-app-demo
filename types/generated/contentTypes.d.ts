@@ -678,7 +678,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -707,6 +706,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    fullName: Attribute.String;
+    pseudonym: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -761,6 +762,36 @@ export interface PluginI18NLocale extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAboutUsAboutUs extends Schema.SingleType {
+  collectionName: 'about_uses';
+  info: {
+    singularName: 'about-us';
+    pluralName: 'about-uses';
+    displayName: 'About Us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutUs: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us.about-us',
       'oneToOne',
       'admin::user'
     > &
@@ -859,6 +890,66 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactUsContactUs extends Schema.SingleType {
+  collectionName: 'contact_uses';
+  info: {
+    singularName: 'contact-us';
+    pluralName: 'contact-uses';
+    displayName: 'Contact Us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactUs: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDmcaPolicyDmcaPolicy extends Schema.SingleType {
+  collectionName: 'dmca_policies';
+  info: {
+    singularName: 'dmca-policy';
+    pluralName: 'dmca-policies';
+    displayName: 'DMCA policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    dmcaPolicy: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dmca-policy.dmca-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dmca-policy.dmca-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.SingleType {
   collectionName: 'privacy_policies';
   info: {
@@ -909,6 +1000,8 @@ export interface ApiSiteSite extends Schema.CollectionType {
       'oneToMany',
       'api::category.category'
     >;
+    facebook_url: Attribute.String;
+    twitter_url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -967,8 +1060,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::dmca-policy.dmca-policy': ApiDmcaPolicyDmcaPolicy;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::site.site': ApiSiteSite;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;

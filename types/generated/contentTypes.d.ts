@@ -872,6 +872,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::article.article'
     >;
     slug: Attribute.UID<'api::category.category', 'category'>;
+    sites: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::site.site'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -994,14 +999,14 @@ export interface ApiSiteSite extends Schema.CollectionType {
   attributes: {
     domain: Attribute.String;
     logo: Attribute.Media;
-    mainColor: Attribute.String;
     categories: Attribute.Relation<
       'api::site.site',
-      'oneToMany',
+      'manyToMany',
       'api::category.category'
     >;
     facebook_url: Attribute.String;
     twitter_url: Attribute.String;
+    colors: Attribute.Component<'colors.colors'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

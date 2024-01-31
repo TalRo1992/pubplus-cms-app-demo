@@ -26,14 +26,11 @@
         "audios"
       ]
     },
-    "mainColor": {
-      "type": "string",
-      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
-    },
     "categories": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "sites"
     },
     "facebook_url": {
       "type": "string",
@@ -42,6 +39,11 @@
     "twitter_url": {
       "type": "string",
       "regex": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+    },
+    "colors": {
+      "type": "component",
+      "repeatable": false,
+      "component": "colors.colors"
     }
   }
 }

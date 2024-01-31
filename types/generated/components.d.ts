@@ -18,6 +18,21 @@ export interface ArticleComponentsItem extends Schema.Component {
   };
 }
 
+export interface ColorsColors extends Schema.Component {
+  collectionName: 'components_colors_colors';
+  info: {
+    displayName: 'colors';
+    description: '';
+  };
+  attributes: {
+    color_1: Attribute.String;
+    color_2: Attribute.String;
+    color_3: Attribute.String;
+    color_4: Attribute.String;
+    color_5: Attribute.String;
+  };
+}
+
 export interface StaticPagesPrivacyPolicy extends Schema.Component {
   collectionName: 'components_static_pages_privacy_policies';
   info: {
@@ -46,6 +61,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'article-components.item': ArticleComponentsItem;
+      'colors.colors': ColorsColors;
       'static-pages.privacy-policy': StaticPagesPrivacyPolicy;
       'static-pages.terms-of-service': StaticPagesTermsOfService;
     }

@@ -24,6 +24,12 @@
     "slug": {
       "type": "uid",
       "targetField": "category"
+    },
+    "sites": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::site.site",
+      "mappedBy": "categories"
     }
   }
 }
